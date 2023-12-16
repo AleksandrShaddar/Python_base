@@ -43,8 +43,7 @@ def work_with_phonebook():
         elif choice == 7:
             last_name = input('Введите фамилию копируемого абонента: ')
             new_list = copy_user(phone_book, last_name)
-            write_new_txt('Seminar_8/homework/new_phonebook.txt', new_list)
-            print(f'Абонент {last_name} скопирован!')
+            write_new_txt('Seminar_8/homework/new_phonebook.txt', new_list)            
         elif choice > 8 or choice == 0:        
             print("Выберете действие из перечня!")
         choice = show_menu()

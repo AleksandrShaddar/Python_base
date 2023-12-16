@@ -6,6 +6,8 @@ from find_by_number import find_by_number
 from read_txt import read_txt
 from show_menu import show_menu
 from write_txt import write_txt
+from copy_user import copy_user
+from write_new_txt import write_new_txt
 
 
 def work_with_phonebook():
@@ -14,7 +16,7 @@ def work_with_phonebook():
 
     phone_book = read_txt('Seminar_8/homework/phonebook.txt')
 
-    while (choice != 7):
+    while (choice != 8):
         if choice == 1:
             for i in phone_book:
                 print(i)            
@@ -38,7 +40,12 @@ def work_with_phonebook():
             add_user(phone_book)
             write_txt('Seminar_8/homework/phonebook.txt', phone_book)
             print("Новый абонент добавлен!")
-        elif choice > 7 or choice == 0:        
+        elif choice == 7:
+            last_name = input('Введите фамилию копируемого абонента: ')
+            new_list = copy_user(phone_book, last_name)
+            write_new_txt('Seminar_8/homework/new_phonebook.txt', new_list)
+            print(f'Абонент {last_name} скопирован!')
+        elif choice > 8 or choice == 0:        
             print("Выберете действие из перечня!")
         choice = show_menu()
 

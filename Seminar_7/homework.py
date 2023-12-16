@@ -46,20 +46,18 @@ else:
 # 3 6 9
 
 def print_operation_table(operation, num_rows = 9, num_columns = 9):
-    if num_rows < 2:
+    if num_rows < 2 or num_columns < 2:
         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
     else:
         columns = [i for i in range(1, num_columns + 1)] 
         print(*columns)
         for i in range(2, num_rows + 1):
-            print(i, end='')
+            list_1 = [i]
             for j in range(2, num_columns + 1):
-                print(operation(i, j), end=' ')
-            print('\t')
+                list_1.append(operation(i, j))
+            print(*list_1)
 
-
-
-print_operation_table(lambda x, y: x * y, 3, 3)
+print_operation_table(lambda x, y: x * y, 5, 5)
 
 # Задача 2.
 # Винни-Пух попросил Вас посмотреть, есть ли в его стихах ритм. 
